@@ -14,9 +14,8 @@ namespace ICMarkets.BlockchainDataAggregator.Application.Validators
             _supportedCurrencies = []; // Optimized default empty array
         }
 
-        public static void LoadCurrencies(IServiceProvider serviceProvider)
+        public static void LoadCurrencies(IConfiguration configuration)
         {
-            var configuration = serviceProvider.GetRequiredService<IConfiguration>();
             var supportedList = configuration.GetSection("BlockchainSettings:SupportedCurrencies").Get<string[]>();
 
             _supportedCurrencies = supportedList ?? []; // Avoid null lists
@@ -32,6 +31,11 @@ namespace ICMarkets.BlockchainDataAggregator.Application.Validators
         {
             if (value is string currency)
             {
+                if (_supportedCurrencies.Length == 0)
+                {
+                    IConfiguration configuration = (IConfiguration)validationContext.GetService(typeof(IConfiguration));
+                    LoadCurrencies(configuration);
+                }
                 // Use Array.Exists instead of LINQ for better performance
                 if (!Array.Exists(_supportedCurrencies, c => c == currency.ToLowerInvariant()))
                 {
