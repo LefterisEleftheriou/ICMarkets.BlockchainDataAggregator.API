@@ -83,13 +83,13 @@ namespace ICMarkets.BlockchainDataAggregator.Infrastructure.FunctionalTests.Repo
         public void AddAsync_ShouldThrowException_WhenDuplicateHashOrHeight()
         {
             // Arrange
-            var data = new BlockchainData("btc.main", 200, "duplicateHash", "2025-02-02T10:00:00Z", "latestUrl",
+            var data = new BlockchainData("btc.main", 201, "duplicateHash2", "2025-02-02T10:00:00Z", "latestUrl",
                 "prevHash", "prevUrl", 15, 7, 1200, 700, 400, 1000, "forkHash");
 
             // Act
             Assert.DoesNotThrowAsync(() => _repository.AddAsync(data)); // First insert should pass
 
-            var duplicateData = new BlockchainData("btc.main", 200, "duplicateHash", "2025-02-02T10:00:00Z",
+            var duplicateData = new BlockchainData("btc.main", 201, "duplicateHash2", "2025-02-02T10:00:00Z",
                 "latestUrl", "prevHash", "prevUrl", 15, 7, 1200, 700, 400, 1000, "forkHash");
 
             // Second insert should fail

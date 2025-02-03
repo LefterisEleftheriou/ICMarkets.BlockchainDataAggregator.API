@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ICMarkets.BlockchainDataAggregator.API\ICMarkets.BlockchainDataAggregator.API.csproj" />
     <ProjectReference Include="..\ICMarkets.BlockchainDataAggregator.Infrastructure\ICMarkets.BlockchainDataAggregator.Infrastructure.csproj" />
   </ItemGroup>
 
