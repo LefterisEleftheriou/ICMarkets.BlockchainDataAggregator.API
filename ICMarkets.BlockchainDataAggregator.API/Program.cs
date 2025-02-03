@@ -25,7 +25,7 @@ public class Program
             options.AddDefaultPolicy(builder =>
             {
                 builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
+                    .WithHeaders("GET")
                     .AllowAnyHeader();
             });
         });

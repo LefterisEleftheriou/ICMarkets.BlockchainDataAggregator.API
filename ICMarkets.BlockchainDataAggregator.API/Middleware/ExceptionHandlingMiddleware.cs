@@ -40,6 +40,7 @@ namespace ICMarkets.BlockchainDataAggregator.API.Middleware
                 BlockcypherApiException => (int)HttpStatusCode.ServiceUnavailable,
                 BlockcypherDataDeserializationException => (int)HttpStatusCode.InternalServerError,
                 DatabaseOperationException => (int)HttpStatusCode.InternalServerError,
+                TooManyRequestsException => (int)HttpStatusCode.TooManyRequests,
                 _ => (int)HttpStatusCode.InternalServerError
             };
 

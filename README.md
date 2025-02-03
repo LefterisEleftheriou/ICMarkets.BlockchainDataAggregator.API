@@ -20,10 +20,7 @@ It follows **Clean Architecture** with separate layers:
 ## 🚀 Getting Started
 
 ### 📥 Prerequisites
-- .NET SDK 7+
-- Docker (Optional for PostgreSQL)
-
-### 🔧 Setup & Run
+- .NET SDK 8
 
 #### **1️⃣ Clone the Repository**
 ```sh
