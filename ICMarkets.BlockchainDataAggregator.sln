@@ -1,0 +1,99 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.API", "ICMarkets.BlockchainDataAggregator.API\ICMarkets.BlockchainDataAggregator.API.csproj", "{60CB5A1A-BA1A-4ED4-B021-0BA4295633FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D4FD2EA4-EC6D-4F0A-BE37-2A9E3B33C5E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{192C6F21-E260-4497-9197-C2ADB400B471}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.Application", "ICMarkets.BlockchainDataAggregator.Application\ICMarkets.BlockchainDataAggregator.Application.csproj", "{5F44D010-E260-41DD-B011-5C6A54D1A895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.Domain", "ICMarkets.BlockchainDataAggregator.Domain\ICMarkets.BlockchainDataAggregator.Domain.csproj", "{952F1AB0-A4D1-4409-94B9-B2646F847FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.Infrastructure", "ICMarkets.BlockchainDataAggregator.Infrastructure\ICMarkets.BlockchainDataAggregator.Infrastructure.csproj", "{5C1B2F3E-9BE9-4196-A3F9-2E7B59AD79E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.API.IntegrationTests", "ICMarkets.BlockchainDataAggregator.API.IntegrationTests\ICMarkets.BlockchainDataAggregator.API.IntegrationTests.csproj", "{5F582AAD-AEA5-4D3F-8243-E0BBB74539F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.Application.FunctionalTests", "ICMarkets.BlockchainDataAggregator.Application.FunctionalTests\ICMarkets.BlockchainDataAggregator.Application.FunctionalTests.csproj", "{96804CD5-8E17-442F-B162-5E46CB19D0CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.Application.UnitTests", "ICMarkets.BlockchainDataAggregator.Application.UnitTests\ICMarkets.BlockchainDataAggregator.Application.UnitTests.csproj", "{C484BADD-B733-49CE-9DCD-A3D5E596889E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.Domain.UnitTests", "ICMarkets.BlockchainDataAggregator.Domain.UnitTests\ICMarkets.BlockchainDataAggregator.Domain.UnitTests.csproj", "{146A9F16-935E-486F-AE19-5187947E6A41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.Infrastructure.IntegrationTests", "ICMarkets.BlockchainDataAggregator.Infrastructure.IntegrationTests\ICMarkets.BlockchainDataAggregator.Infrastructure.IntegrationTests.csproj", "{2DDB3EBB-5D58-4682-81E7-656335617DE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.Infrastructure.UnitTests", "ICMarkets.BlockchainDataAggregator.Infrastructure.UnitTests\ICMarkets.BlockchainDataAggregator.Infrastructure.UnitTests.csproj", "{8B88FFC6-5A76-4F29-8898-77F90DF06DFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICMarkets.BlockchainDataAggregator.Infrastructure.FunctionalTests", "ICMarkets.BlockchainDataAggregator.Infrastructure.FunctionalTests\ICMarkets.BlockchainDataAggregator.Infrastructure.FunctionalTests.csproj", "{13461937-1F8F-4739-A526-ECE5225BF176}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60CB5A1A-BA1A-4ED4-B021-0BA4295633FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60CB5A1A-BA1A-4ED4-B021-0BA4295633FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60CB5A1A-BA1A-4ED4-B021-0BA4295633FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60CB5A1A-BA1A-4ED4-B021-0BA4295633FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F44D010-E260-41DD-B011-5C6A54D1A895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F44D010-E260-41DD-B011-5C6A54D1A895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F44D010-E260-41DD-B011-5C6A54D1A895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F44D010-E260-41DD-B011-5C6A54D1A895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{952F1AB0-A4D1-4409-94B9-B2646F847FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{952F1AB0-A4D1-4409-94B9-B2646F847FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{952F1AB0-A4D1-4409-94B9-B2646F847FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{952F1AB0-A4D1-4409-94B9-B2646F847FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C1B2F3E-9BE9-4196-A3F9-2E7B59AD79E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1B2F3E-9BE9-4196-A3F9-2E7B59AD79E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1B2F3E-9BE9-4196-A3F9-2E7B59AD79E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1B2F3E-9BE9-4196-A3F9-2E7B59AD79E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F582AAD-AEA5-4D3F-8243-E0BBB74539F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F582AAD-AEA5-4D3F-8243-E0BBB74539F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F582AAD-AEA5-4D3F-8243-E0BBB74539F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F582AAD-AEA5-4D3F-8243-E0BBB74539F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96804CD5-8E17-442F-B162-5E46CB19D0CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96804CD5-8E17-442F-B162-5E46CB19D0CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96804CD5-8E17-442F-B162-5E46CB19D0CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96804CD5-8E17-442F-B162-5E46CB19D0CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C484BADD-B733-49CE-9DCD-A3D5E596889E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C484BADD-B733-49CE-9DCD-A3D5E596889E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C484BADD-B733-49CE-9DCD-A3D5E596889E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C484BADD-B733-49CE-9DCD-A3D5E596889E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{146A9F16-935E-486F-AE19-5187947E6A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{146A9F16-935E-486F-AE19-5187947E6A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{146A9F16-935E-486F-AE19-5187947E6A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{146A9F16-935E-486F-AE19-5187947E6A41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DDB3EBB-5D58-4682-81E7-656335617DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DDB3EBB-5D58-4682-81E7-656335617DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DDB3EBB-5D58-4682-81E7-656335617DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DDB3EBB-5D58-4682-81E7-656335617DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B88FFC6-5A76-4F29-8898-77F90DF06DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B88FFC6-5A76-4F29-8898-77F90DF06DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B88FFC6-5A76-4F29-8898-77F90DF06DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B88FFC6-5A76-4F29-8898-77F90DF06DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13461937-1F8F-4739-A526-ECE5225BF176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13461937-1F8F-4739-A526-ECE5225BF176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13461937-1F8F-4739-A526-ECE5225BF176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13461937-1F8F-4739-A526-ECE5225BF176}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{60CB5A1A-BA1A-4ED4-B021-0BA4295633FC} = {D4FD2EA4-EC6D-4F0A-BE37-2A9E3B33C5E5}
+		{5F44D010-E260-41DD-B011-5C6A54D1A895} = {D4FD2EA4-EC6D-4F0A-BE37-2A9E3B33C5E5}
+		{952F1AB0-A4D1-4409-94B9-B2646F847FA3} = {D4FD2EA4-EC6D-4F0A-BE37-2A9E3B33C5E5}
+		{5C1B2F3E-9BE9-4196-A3F9-2E7B59AD79E6} = {D4FD2EA4-EC6D-4F0A-BE37-2A9E3B33C5E5}
+		{5F582AAD-AEA5-4D3F-8243-E0BBB74539F7} = {192C6F21-E260-4497-9197-C2ADB400B471}
+		{96804CD5-8E17-442F-B162-5E46CB19D0CB} = {192C6F21-E260-4497-9197-C2ADB400B471}
+		{C484BADD-B733-49CE-9DCD-A3D5E596889E} = {192C6F21-E260-4497-9197-C2ADB400B471}
+		{146A9F16-935E-486F-AE19-5187947E6A41} = {192C6F21-E260-4497-9197-C2ADB400B471}
+		{2DDB3EBB-5D58-4682-81E7-656335617DE0} = {192C6F21-E260-4497-9197-C2ADB400B471}
+		{8B88FFC6-5A76-4F29-8898-77F90DF06DFC} = {192C6F21-E260-4497-9197-C2ADB400B471}
+		{13461937-1F8F-4739-A526-ECE5225BF176} = {192C6F21-E260-4497-9197-C2ADB400B471}
+	EndGlobalSection
+EndGlobal

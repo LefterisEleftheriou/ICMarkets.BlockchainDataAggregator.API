@@ -1,49 +1,67 @@
+using ICMarkets.BlockchainDataAggregator.API.Middleware;
+using ICMarkets.BlockchainDataAggregator.Infrastructure.Extensions;
+using ICMarkets.BlockchainDataAggregator.Infrastructure.Seeders;
 
-using Microsoft.AspNetCore.HttpLogging;
+namespace ICMarkets.BlockchainDataAggregator.API;
 
-namespace ICMarkets.BlockchainDataAggregator.API
+public class Program
 {
-    public class Program
+    public static async Task Main(string[] args)
     {
-        public static void Main(string[] args)
+        var builder = WebApplication.CreateBuilder(args);
+
+        // Add services to the container.
+
+        builder.Services.AddControllers();
+
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+
+        builder.Services.AddHealthChecks();
+
+        builder.Services.AddCors(options =>
         {
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-            
-            builder.Services.AddHealthChecks();
-
-            builder.Services.AddHttpLogging(logging =>
+            options.AddDefaultPolicy(builder =>
             {
-                logging.CombineLogs = true;
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
             });
+        });
 
-            var app = builder.Build();
+        builder.Services.AddHttpLogging(logging =>
+        {
+            logging.CombineLogs = true;
+        });
 
-            app.UseHttpLogging();
+        builder.Services.AddInfrastructure(builder.Configuration);
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+        var app = builder.Build();
 
-            app.UseHttpsRedirection();
+        app.UseMiddleware<ExceptionHandlingMiddleware>();
 
-            app.UseAuthorization();
+        app.UseHttpLogging();
 
-            app.MapHealthChecks("/healthcheckz");
-
-            app.MapControllers();
-
-            app.Run();
+        // Configure the HTTP request pipeline.
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
+
+        app.UseHttpsRedirection();
+
+        app.UseAuthorization();
+
+        app.UseCors();
+
+        app.MapHealthChecks("/healthcheckz");
+
+        app.MapControllers();
+
+        await BlockchainDbSeeder.SeedAsync(app.Services);
+
+        app.Run();
     }
 }
