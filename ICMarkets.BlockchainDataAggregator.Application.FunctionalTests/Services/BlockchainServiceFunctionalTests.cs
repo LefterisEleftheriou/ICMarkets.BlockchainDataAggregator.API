@@ -18,7 +18,7 @@ namespace ICMarkets.BlockchainDataAggregator.Application.FunctionalTests.Service
         private Mock<IBlockchainRepository> _mockRepository;
         private Mock<ILogger<BlockchainService>> _mockLogger;
         private Mock<HttpMessageHandler> _mockHttpMessageHandler;
-        private HttpClient _httpClient;
+        private Mock<HttpClient> _mockHttpClient;
         private IBlockchainService _blockchainService;
 
         [SetUp]
@@ -29,12 +29,9 @@ namespace ICMarkets.BlockchainDataAggregator.Application.FunctionalTests.Service
 
             _mockHttpMessageHandler = new Mock<HttpMessageHandler>();
 
-            _httpClient = new HttpClient(_mockHttpMessageHandler.Object)
-            {
-                BaseAddress = new Uri("https://api.blockcypher.com/v1/")
-            };
+            _mockHttpClient = new Mock<HttpClient>();
 
-            _blockchainService = new BlockchainService(_mockRepository.Object, _httpClient, _mockLogger.Object);
+            _blockchainService = new BlockchainService(_mockRepository.Object, _mockHttpClient.Object, _mockLogger.Object);
         }
 
         /// <summary>
@@ -95,10 +92,10 @@ namespace ICMarkets.BlockchainDataAggregator.Application.FunctionalTests.Service
         public async Task GetLatestBlockchainDataAsync_ShouldReturnStoredData_WhenDataExists()
         {
             // Arrange
-            var currency = "btc.main";
+            var currency = "eth.main";
             var storedData = new List<BlockchainData>
             {
-                new BlockchainData("btc.main", 123456, "testHash", "2025-02-02T08:50:05Z", "latestUrl",
+                new BlockchainData("eth.main", 123456, "testHash", "2025-02-02T08:50:05Z", "latestUrl",
                     "prevHash", "prevUrl", 10, 5, 1000, 500, 200, 900, "forkHash")
             };
 
@@ -111,7 +108,7 @@ namespace ICMarkets.BlockchainDataAggregator.Application.FunctionalTests.Service
             // Assert
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Count(), Is.EqualTo(1));
-            Assert.That(result.First().Name, Is.EqualTo("btc.main"));
+            Assert.That(result.First().Name, Is.EqualTo("eth.main"));
 
             _mockHttpMessageHandler.Protected().Verify(
                 "SendAsync", Times.Never(),
@@ -192,12 +189,6 @@ namespace ICMarkets.BlockchainDataAggregator.Application.FunctionalTests.Service
             // Act & Assert
             Assert.ThrowsAsync<DatabaseOperationException>(async () =>
                 await _blockchainService.GetLatestBlockchainDataAsync(currency, 10));
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            _httpClient.Dispose();
-        }
+        }        
     }
 }
