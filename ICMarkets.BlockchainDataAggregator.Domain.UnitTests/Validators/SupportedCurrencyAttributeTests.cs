@@ -1,8 +1,5 @@
 ﻿using ICMarkets.BlockchainDataAggregator.Application.Validators;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework.Legacy;
 using System.ComponentModel.DataAnnotations;

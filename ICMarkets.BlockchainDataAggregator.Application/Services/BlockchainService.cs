@@ -5,6 +5,7 @@ using ICMarkets.BlockchainDataAggregator.Domain;
 using ICMarkets.BlockchainDataAggregator.Domain.Interfaces;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace ICMarkets.BlockchainDataAggregator.Application.Services
 {
@@ -58,8 +59,16 @@ namespace ICMarkets.BlockchainDataAggregator.Application.Services
 
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning("Received non-success status code {StatusCode} from {Url}", response.StatusCode, url);
-                throw new BlockcypherApiException($"Failed to fetch data from {url}. Status Code: {response.StatusCode}");
+                if (response.StatusCode == HttpStatusCode.TooManyRequests)
+                {
+                    _logger.LogWarning("Rate limit exceeded for {Currency}. BlockCypher returned 429 Too Many Requests", currency);
+                    throw new TooManyRequestsException();
+                }
+                else
+                {
+                    _logger.LogWarning("Received non-success status code {StatusCode} from {Url}", response.StatusCode, url);
+                    throw new BlockcypherApiException($"Failed to fetch data from {url}. Status Code: {response.StatusCode}");
+                }
             }
 
             string json = await response.Content.ReadAsStringAsync();

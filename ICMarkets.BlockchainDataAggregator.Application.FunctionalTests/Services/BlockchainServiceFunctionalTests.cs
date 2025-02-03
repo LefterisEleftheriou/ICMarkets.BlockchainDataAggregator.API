@@ -133,6 +133,7 @@ namespace ICMarkets.BlockchainDataAggregator.Application.FunctionalTests.Service
                 )
                 .ReturnsAsync(new HttpResponseMessage
                 {
+                    Content = new StringContent(""),
                     StatusCode = HttpStatusCode.BadRequest
                 });
 
@@ -184,7 +185,7 @@ namespace ICMarkets.BlockchainDataAggregator.Application.FunctionalTests.Service
                 .ReturnsAsync((BlockchainData)null);
 
             _mockRepository.Setup(repo => repo.AddAsync(It.IsAny<BlockchainData>()))
-                .ThrowsAsync(new Exception("Database error"));
+                .ThrowsAsync(new DatabaseOperationException("Database error", new Exception("Database error, inner")));
 
             // Act & Assert
             Assert.ThrowsAsync<DatabaseOperationException>(async () =>

@@ -1,6 +1,8 @@
+using ICMarkets.BlockchainDataAggregator.Application.DTOs;
 using ICMarkets.BlockchainDataAggregator.Application.Interfaces;
 using ICMarkets.BlockchainDataAggregator.Application.Validators;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace ICMarkets.BlockchainDataAggregator.API.Controllers
 {
@@ -27,6 +29,10 @@ namespace ICMarkets.BlockchainDataAggregator.API.Controllers
         /// <param name="limit">The number of records to return.</param>
         /// <returns>A list of blockchain data.</returns>
         [HttpGet("{currency}")]
+        [ProducesResponseType((int)HttpStatusCode.ServiceUnavailable)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType((int)HttpStatusCode.TooManyRequests)]
+        [ProducesResponseType(typeof(IEnumerable<BlockchainDataDto>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetLatestBlockchainData([FromRoute, SupportedCurrency] string currency, [FromQuery] int limit = 10)
         {
             _logger.LogInformation("API request received for latest blockchain data: {Currency}", currency);
